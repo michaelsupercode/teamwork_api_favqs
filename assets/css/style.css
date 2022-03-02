@@ -33,6 +33,7 @@ body {
 .autor>li a {
 	background-color: #eaea ;
     color: #fff;
+    opacity: .5;
 }
 .nav-tabs>li>a.active, 
 .nav-tabs>li a.active>:focus, 
