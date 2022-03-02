@@ -3,3 +3,57 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: black;
+  }
+
+  a{
+      text-decoration: unset;
+  }
+.nav-tabs {
+	border-bottom: 0;
+}
+
+.nav-tabs li {
+	margin-right: .5em;
+}
+
+.nav-tabs li:last-child {
+	margin-right: 0;
+}
+.nav-tabs>li a {
+	display: inline-block;
+	background-color: #fff;
+	border: none;
+	border-radius: 30px;
+	font-size: 14px;
+	color: #000;
+	padding: 5px 30px;
+}
+.autor>li a {
+	background-color: #eaea ;
+    color: #fff;
+}
+.nav-tabs>li>a.active, 
+.nav-tabs>li a.active>:focus, 
+.nav-tabs>li>a.active:hover,
+.nav-tabs>li>a:hover {
+	border: none;
+	background-color: #008def;
+	color: #fff;
+}
+  #quote-box {
+    background-color: white;
+    padding: 30px;
+  }
+  
+  #quote-box button {
+    color: white;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .rounded-border {
+    border-radius: 10px;
+  }
+  
