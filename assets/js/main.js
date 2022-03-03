@@ -130,7 +130,7 @@ function changeQuote(){
     randomNum = newRandomNumber();
     randomQuote = showNewQuote(randomNum);
     quoteText.innerHTML = `${randomQuote.body}`;
-    quoteAuthor.innerHTML = `${randomQuote.author}`;
+    quoteAuthor.innerHTML = `- ${randomQuote.author} -`;
 }
 
 
