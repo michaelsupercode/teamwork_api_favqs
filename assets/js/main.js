@@ -1,61 +1,166 @@
-let quoteText = document.querySelector("#quote-text");
-let quoteAuthor = document.querySelector("#quote-author");
-let twitter = document.querySelector("#twitter-icon");
-let newQuote = document.querySelector("#new-quote-icon");
-
-let authorButtons = document.querySelectorAll(".autor");
-let urlAutor = ``;
-
-authorButtons.forEach((e) => {
-    e.addEventListener("click", () => {
-        let singleAutor = (e.innerHTML).replace(" ", "+");
-        urlAutor = `https://favqs.com/api/quotes/?filter=${singleAutor}&type=author`;
-        console.log(urlAutor);
-    })
-})
-
-console.log(urlAutor);
-
-let topicButtons = document.querySelector(".topic")
-
-let filter = document.querySelectorAll("#filters")
-console.log(filter);
-
 let token = "b481e9421c4198af4a4ad791a5856895";
-
 const header = {
     "Authorization": "Token token=b481e9421c4198af4a4ad791a5856895"
 }
 let url = 'https://favqs.com/api/quotes';
 
+let quoteText = document.querySelector("#quote-text");
+let quoteAuthor = document.querySelector("#quote-author");
+let twitter = document.querySelector("#twitter-icon");
+let newQuote = document.querySelector("#new-quote-icon");
 
-fetch(`${url}`, { headers: header })
-    .then(response => response.json())
-    .then(json => {
-        json.quotes.forEach((el) => {
-            quoteText.innerHTML = `${el.body}`;
-            quoteAuthor.innerHTML = `${el.author}`;
-            newQuote.addEventListener("click", (e) => {
-                location.reload(true);
-            })
-        })
+let colorArray = [
+    "#65655E", 
+    "#7D80DA", 
+    "#B0A3D4", 
+    "#CEBACF",
+    "#C6AFB1", 
+    "#32021F",
+    "#4B2E39",
+    "#6C596E",
+    "#6F7D8C",
+    "#77A0A9",
+];
+let numColors = colorArray.length;
+let randomColor;
+let randomColorNumber = 0;
 
+let quoteArray = []
+let numQuotes;
+let randomNum;
+let randomQuote;
+
+//filter author
+let authorButtons = document.querySelectorAll(".autor");
+let urlAutor = ``;
+authorButtons.forEach((e) => {
+    e.addEventListener("click", () => {
+        removeClassActive()
+        let singleAutor = (e.innerHTML).replace(" ", "+");
+        urlAutor = `https://favqs.com/api/quotes/?filter=${singleAutor}&type=author`;
+        console.log(urlAutor);
+        if(e.classList.contains('active')){
+            location.reload(true);
+            e.classList.remove('active')
+        }else{
+            e.classList.add('active')
+        }
+        
+        
+        !async function(){
+            quoteArray = await fetch(`${urlAutor}`, { headers: header })
+                .then((response) => response.json())
+                .then(data => {
+                    return data.quotes;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        
+            numQuotes = quoteArray.length;
+            showQuoteAndChangeColor()
+            }();
     })
+})
+//filter topic
+let topicButtons = document.querySelectorAll(".topic");
+let urlTopic = ``;
+topicButtons.forEach((e) => {
+    e.addEventListener("click", () => {
+        removeClassActive()
+        urlTopic = `https://favqs.com/api/quotes/?filter=${e.innerHTML}`;
+        console.log(urlTopic);
+        if(e.classList.contains('active')){
+            location.reload(true);
+            e.classList.remove('active')
+        }else{
+            e.classList.add('active')
+        }
+        
+        
+        !async function(){
+            quoteArray = await fetch(`${urlTopic}`, { headers: header })
+                .then((response) => response.json())
+                .then(data => {
+                    return data.quotes;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        
+            numQuotes = quoteArray.length;
+            showQuoteAndChangeColor()
+            }();
+    })
+})
 
-
-
-
-
-let x, y, z;
-
-function random_bg_color() {
-    x = Math.floor(Math.random() * 256);
-    y = Math.floor(Math.random() * 256);
-    z = Math.floor(Math.random() * 256);
-    let bgColor = `rgb(${x}, ${y}, ${z})`;
-    console.log(bgColor);
-    document.body.style.backgroundColor = bgColor;
+//remove class active
+function removeClassActive(buttons){
+    topicButtons.forEach((e) =>{
+        e.classList.remove('active')
+    })
+    authorButtons.forEach((e) =>{
+        e.classList.remove('active')
+    })
 }
 
-random_bg_color();
+!async function(){
+    quoteArray = await fetch(`${url}`, { headers: header })
+        .then((response) => response.json())
+        .then(data => {
+            return data.quotes;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    numQuotes = quoteArray.length;
+}();
 
+function showNewQuote(randomNum) {
+    return quoteArray[randomNum];
+}
+function newRandomNumber() {
+    let numQ = Math.floor(Math.random() * (numQuotes - 1));
+    if (numQ >= randomNum) {
+        numQ++;
+    }
+    return numQ;
+}
+function changeQuote(){
+    randomNum = newRandomNumber();
+    randomQuote = showNewQuote(randomNum);
+    quoteText.innerHTML = `${randomQuote.body}`;
+    quoteAuthor.innerHTML = `${randomQuote.author}`;
+}
+
+
+function random_color() {
+    let numC = Math.floor(Math.random() * (numColors - 1));
+
+    if (numC >= randomColorNumber) {
+        numC++;
+    }
+
+    randomColorNumber = numC;
+    return colorArray[numC];
+}
+
+function changeColor(){
+    randomColor = random_color();
+
+    document.body.style.backgroundColor = randomColor
+    quoteText.style.color = randomColor
+    quoteAuthor.style.color = randomColor
+    twitter.style.color = randomColor
+    newQuote.style.color = randomColor
+}
+
+function showQuoteAndChangeColor(){
+    changeColor()
+    changeQuote()
+}
+
+setTimeout(showQuoteAndChangeColor, 1500)
+newQuote.addEventListener("click", (e) => {
+    showQuoteAndChangeColor()
+})

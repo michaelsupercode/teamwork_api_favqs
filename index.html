@@ -13,50 +13,30 @@
 
 <body>
     <header>
-        <div class="row justify-content-center">
-            <img src="a2.png" alt="logo" class="w-25">
+        <div class="row d-flex justify-content-center ">
+            <div class="logo col-2 text-center">
+                <a href=""><img src="assets/img/logo.png" alt="logo" class="w-50"></a>
+            </div>
         </div>
     </header>
     <main>
         <div>
             <div class="row justify-content-center align-items-center">
                 <div id="filters" class="my-5 ">
-                    <ul class="nav nav-tabs justify-content-center my-3 ">
-                        <li class="">
-                            <a class="" href="#">Arbeit</a>
-                        </li>
-                        <li class="">
-                            <a class="" href="#">Respekt</a>
-                        </li>
-                        <li class="">
-                            <a class="" href="#">Liebe</a>
-                        </li>
-                        <li class="">
-                            <a class="" href="#">glückliches Leben</a>
-                        </li>
-                        <li class="">
-                            <a class="" href="#">Träume</a>
-                        </li>
+                    <ul class="nav nav-tabs justify-content-center my-3 gap-3">
+                        <a class="topic" href="#">Work</a>
+                        <a class="topic" href="#">Respect</a>
+                        <a class="topic" href="#">Love</a>
+                        <a class="topic" href="#">Happiness</a>
+                        <a class="topic" href="#">Dreams</a>
                     </ul>
-                    <ul class="nav nav-tabs justify-content-center my-3 ">
-                        <li class="">
-                            <a class="autor" href="#">Albert Einstein</a>
-                        </li>
-                        <li class="">
-                            <a class="autor" href="#">Abraham Lincoln</a>
-                        </li>
-                        <li class="">
-                            <a class="autor" href="#">Benjamin Franklin</a>
-                        </li>
-                        <li class="">
-                            <a class="autor" href="#">Buddha</a>
-                        </li>
-                        <li class="">
-                            <a class="autor" href="#">Paulo Coelho</a>
-                        </li>
-                        <li class="">
-                            <a class="autor" href="#">William Shakespeare</a>
-                        </li>
+                    <ul class="nav nav-tabs justify-content-center my-3 gap-3">
+                        <a class="autor" href="#">Albert Einstein</a>
+                        <a class="autor" href="#">Abraham Lincoln</a>
+                        <a class="autor" href="#">Benjamin Franklin</a>
+                        <a class="autor" href="#">Buddha</a>
+                        <a class="autor" href="#">Paulo Coelho</a>
+                        <a class="autor" href="#">William Shakespeare</a>
                     </ul>
                 </div>
                 <div id="quote-box" class="col-6 row rounded-border mt-5">
@@ -64,22 +44,22 @@
                     <!-- Zitate -->
                     <div class="row">
                         <div class="col">
-                            <h2 id="quote-text" style="text-align:center">"Zitate hier"</h2>
+                            <h2 id="quote-text" style="text-align:center"></h2>
                         </div>
 
                     </div>
                     <!-- Autor -->
                     <div class="row">
                         <div class="col">
-                            <h4 id="quote-author" style="text-align:center">-Autor</h4>
+                            <h4 id="quote-author" style="text-align:center"></h4>
                         </div>
                     </div>
                     <!-- Buttons -->
                     <div class="row d-flex justify-content-between">
                         <div id="twitter-icon" class="col-2 rounded-border"><i class="fa fa-twitter-square fa-4x"
-                                aria-hidden="true"><a></a></i></div>
+                                aria-hidden="true" style="cursor: pointer;"></i></div>
                         <div id="new-quote-icon" class="col-2"><i class="fa fa-refresh fa-4x" aria-hidden="true"
-                                style="float:right"></i></div>
+                                style="float:right; cursor: pointer;"></i></div>
                     </div>
 
                 </div>
