@@ -162,8 +162,10 @@ function showQuoteAndChangeColor(){
 }
 
 function changeTwitterLink(text, author){
+    // author.toLowerCase()
     let twitterText = text.replace(/ /g, '%20')
-    twitterText += author.replace(/ /g, '%20')
+    twitterText += "%23"
+    twitterText += author.replace(/ /g, '').toLowerCase()
     console.log(twitterText);
     twitter.href = `https://twitter.com/intent/tweet?text=${twitterText}`
 }
