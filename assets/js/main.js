@@ -1,4 +1,3 @@
-let token = "b481e9421c4198af4a4ad791a5856895";
 const header = {
     "Authorization": "Token token=b481e9421c4198af4a4ad791a5856895"
 }
@@ -131,6 +130,8 @@ function changeQuote(){
     randomQuote = showNewQuote(randomNum);
     quoteText.innerHTML = `${randomQuote.body}`;
     quoteAuthor.innerHTML = `- ${randomQuote.author} -`;
+
+    changeTwitterLink(randomQuote.body, randomQuote.author)
 }
 
 
@@ -160,6 +161,12 @@ function showQuoteAndChangeColor(){
     changeQuote()
 }
 
+function changeTwitterLink(text, author){
+    let twitterText = text.replace(/ /g, '%20')
+    twitterText += author.replace(/ /g, '%20')
+    console.log(twitterText);
+    twitter.href = `https://twitter.com/intent/tweet?text=${twitterText}`
+}
 setTimeout(showQuoteAndChangeColor, 1500)
 newQuote.addEventListener("click", (e) => {
     showQuoteAndChangeColor()

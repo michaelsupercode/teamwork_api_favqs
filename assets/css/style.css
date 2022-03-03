@@ -13,14 +13,6 @@ body {
 .nav-tabs {
 	border-bottom: 0;
 }
-
-/* .nav-tabs {
-	margin-right: .5em;
-}
-
-.nav-tabs li:last-child {
-	margin-right: 0;
-} */
 .nav-tabs>a {
 	display: inline-block;
 	background-color: #fff;
