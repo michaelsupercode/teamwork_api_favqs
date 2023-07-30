@@ -10,9 +10,11 @@ body {
   a{
       text-decoration: unset;
   }
+
 .nav-tabs {
 	border-bottom: 0;
 }
+
 .nav-tabs>a {
 	display: inline-block;
 	background-color: #fff;
@@ -22,11 +24,13 @@ body {
 	color: #000;
 	padding: 5px 30px;
 }
-.autor>a {
+
+.author>a {
 	background-color: #eaea ;
     color: #fff;
     opacity: .5;
 }
+
 .nav-tabs>a.active, 
 .nav-tabs>a.active>:focus, 
 .nav-tabs>a.active:hover,
@@ -35,6 +39,7 @@ body {
 	background-color: #008def;
 	color: #fff;
 }
+
   #quote-box {
     background-color: white;
     padding: 30px;
