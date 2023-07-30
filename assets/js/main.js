@@ -36,8 +36,8 @@ authorButtons.forEach((e) => {
     e.addEventListener("click", () => {
         removeClassActive()
         let singleAutor = (e.innerHTML).replace(" ", "+");
-        urlAutor = `https://favqs.com/api/quotes/?filter=${singleAutor}&type=author`;
-        console.log(urlAutor);
+        urlAutor = `https://favqs.com/api/quotes/?filter=${singleAuthor}&type=author`;
+        console.log(urlAuthor);
         if(e.classList.contains('active')){
             location.reload(true);
             e.classList.remove('active')
@@ -47,7 +47,7 @@ authorButtons.forEach((e) => {
         
         
         !async function(){
-            quoteArray = await fetch(`${urlAutor}`, { headers: header })
+            quoteArray = await fetch(`${urlAuthor}`, { headers: header })
                 .then((response) => response.json())
                 .then(data => {
                     return data.quotes;
