@@ -55,3 +55,8 @@ body {
     border-radius: 10px;
   }
   
+  h6 {
+margin: 5vh;
+text-align: center;
+color: white;
+}
