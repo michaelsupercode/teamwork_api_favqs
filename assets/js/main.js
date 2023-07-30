@@ -1,5 +1,5 @@
 const header = {
-    "Authorization": "Token token=b481e9421c4198af4a4ad791a5856895"
+    "Authorization": "Token token=7064ede220efbb4eebe15457e5179f03"
 }
 let url = 'https://favqs.com/api/quotes';
 
@@ -30,12 +30,12 @@ let randomNum;
 let randomQuote;
 
 //filter author
-let authorButtons = document.querySelectorAll(".autor");
-let urlAutor = ``;
+let authorButtons = document.querySelectorAll(".author");
+let urlAuthor = ``;
 authorButtons.forEach((e) => {
     e.addEventListener("click", () => {
         removeClassActive()
-        let singleAutor = (e.innerHTML).replace(" ", "+");
+        let singleAuthor = (e.innerHTML).replace(" ", "+");
         urlAutor = `https://favqs.com/api/quotes/?filter=${singleAuthor}&type=author`;
         console.log(urlAuthor);
         if(e.classList.contains('active')){
