@@ -1,5 +1,5 @@
 const header = {
-    "Authorization": "Token token=7064ede220efbb4eebe15457e5179f03"
+    "Authorization": "Token token="
 }
 let url = 'https://favqs.com/api/quotes';
 
